@@ -6,13 +6,14 @@ services:
     container_name: postgres_db
     restart: always
     environment:
-      POSTGRES_DB: worker_db
+      POSTGRES_DB: postgres
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./worker/schema/gold_schema.sql:/docker-entrypoint-initdb.d/gold_schema.sql
 
 volumes:
   postgres_data:
