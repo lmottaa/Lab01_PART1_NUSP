@@ -195,22 +195,24 @@ Data de Processamento: 2026-03-24 12:36:19
 ---
 ## 6. 🚀 Instruções de Execução
 
-### Opção A: Execução via Docker (Recomendado)
+### Banco de dados no Docker mais aplicação local
 A forma mais simples de rodar o projeto completo, incluindo o banco de dados PostgreSQL.
 
-1.  **Subir os containers**:
+1.  **Subir o container do banco de dados**:
     ```bash
     docker-compose up --build
     ```
-    *Isso iniciará o banco de dados e o worker que orquestra o pipeline.*
+    *Isso iniciará o banco de dados*
 
-### Opção B: Execução Local (Python)
 1.  **Instalar Dependências**:
     ```bash
     pip install -r worker/requirements.txt
     ```
 2.  **Configurar Variáveis de Ambiente**:
     Configure o acesso ao PostgreSQL no seu terminal ou arquivo `.env`.
+4. **Baixar o dataset e colocar no diretório apontado na env INPUT_DATA_PATH**
+
+    [>> IMDb Data on Kaggle](https://www.kaggle.com/datasets/anandshaw2001/imdb-data/data)
 3.  **Executar o Orquestrador**:
     ```bash
     python worker/worker.py
